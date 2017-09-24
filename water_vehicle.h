@@ -13,6 +13,7 @@ public:
 	void SetOrientation(Position::Orientation orientation);
 	unsigned int GetLength();
 	bool IsSunk();
+	bool IsHit(Position::Coordinates coordinates);
 private:
 	Position::Coordinates _coordinates;
 	Position::Orientation _orientation;

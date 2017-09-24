@@ -31,6 +31,21 @@ unsigned int WaterVehicle::GetLength()
 }
 bool WaterVehicle::IsSunk()
 {
-	// assuming _length can't be 0
-	return _hits == _length;
+	return _hits == _length; // assumes _length != 0
+}
+bool WaterVehicle::IsHit(Position::Coordinates coordinates)
+{
+	Position::Coordinates shipCoordinates = _coordinates;
+
+	for (int i = 0; i < _length; i++)
+	{
+		if (shipCoordinates == coordinates)
+			return true;
+		else if (_orientation == Position::Orientation::HORIZONTAL)
+			shipCoordinates.X++;
+		else
+			shipCoordinates.Y++;
+	}
+
+	return false;
 }
