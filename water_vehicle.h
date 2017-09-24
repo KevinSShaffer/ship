@@ -7,11 +7,6 @@ class WaterVehicle
 {
 public:
 	enum Orientation { HORIZONTAL, VERTICAL };
-	unsigned int GetLength();
-	void SetLength(unsigned int length);
-	Coordinate GetLocation();
-	void SetLocation(Coordinate vector);
-
 private:
 	unsigned int _length;
 	Coordinate _location;
