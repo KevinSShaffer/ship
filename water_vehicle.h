@@ -12,10 +12,11 @@ public:
 	Position::Orientation GetOrientation();
 	void SetOrientation(Position::Orientation orientation);
 	unsigned int GetLength();
+	bool IsSunk();
 private:
 	Position::Coordinates _coordinates;
 	Position::Orientation _orientation;
 	unsigned int _length;
-	bool _sunk;
+	unsigned int _hits;
 };
 #endif
