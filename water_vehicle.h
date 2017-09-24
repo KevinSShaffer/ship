@@ -1,16 +1,16 @@
 #ifndef WATER_VEHICLE_H
 #define WATER_VEHICLE_H
 
-#include "Coordinate.h"
+#include "position.h"
 
 class WaterVehicle
 {
 public:
-	enum Orientation { HORIZONTAL, VERTICAL };
+	WaterVehicle(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length);
 private:
+	Position::Coordinates _coordinates;
+	Position::Orientation _orientation;
 	unsigned int _length;
-	Coordinate _location;
-	Orientation _orientation;
 	bool _sunk;
 };
 #endif
