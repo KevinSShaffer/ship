@@ -7,6 +7,11 @@ class WaterVehicle
 {
 public:
 	WaterVehicle(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length);
+	Position::Coordinates GetCoordinates();
+	void SetCoordinates(Position::Coordinates coordinates);
+	Position::Orientation GetOrientation();
+	void SetOrientation(Position::Orientation orientation);
+	unsigned int GetLength();
 private:
 	Position::Coordinates _coordinates;
 	Position::Orientation _orientation;
