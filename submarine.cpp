@@ -17,3 +17,7 @@ bool Submarine::IsSurfaced()
 {
 	return _depth == 0;
 }
+Submarine Submarine::operator=(Submarine other)
+{
+	return Submarine(GetCoordinates(), GetOrientation(), GetLength(), _depth);
+}

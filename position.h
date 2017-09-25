@@ -9,6 +9,7 @@ namespace Position
 		int X;
 		int Y;
 		bool operator==(const Coordinates other);
+		Coordinates(int x, int y);
 	};	
 }
 

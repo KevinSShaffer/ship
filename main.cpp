@@ -6,14 +6,14 @@
 #include "main.h"
 #include "position.h"
 #include "submarine.h"
-#include "..\grid\grid.h"
+#include "../grid/grid.cpp"
 
 using namespace std;
 
 int main()
 {
-	srand(time(0));
-	int x, y, length, depth, grid_x = 10, grid_y = 10;
+	Grid grid(10, 10, time(0));
+	int x, y, length, depth;
 	Position::Orientation orientation;
 
 	do
@@ -23,9 +23,26 @@ int main()
 		length = getInput("Enter the length: ");
 		depth = getInput("Enter the dive depth in meters: ");
 		orientation = getOrientation();
-	} while (!isValid(orientation, x, y, length, grid_x, grid_y));
+	} while (!isValid(orientation, x, y, length, grid.getRows(), grid.getColumns()));
 
+	Submarine submarine(Position::Coordinates(x, y), orientation, length, depth);
 
+	grid.Randomize(75);
+
+	cout << "Fifteen torpedo shots: " << endl;
+	cout << grid.ToString() << endl;
+
+	for (int y = 0; y < grid.getRows(); y++)
+		for (int x = 0; x < grid.getColumns(); x++)
+		{
+			if (grid[y][x] && submarine.IsHit(Position::Coordinates(x, y)))
+			{
+				cout << "Hit at " << x << ", " << y << endl;
+
+				if (submarine.IsSunk())
+					cout << "You sunk my submarine!!!" << endl;
+			}
+		}
 
 	cout << "Press a key to exit: ";
 	cin >> x;
@@ -33,10 +50,10 @@ int main()
 }
 int getInput(string question)
 {
-	int value = 0;
+	int value = -1;
 
 	// loop until user provides valid integer input 
-	while (!value || value < 1)
+	while (value < 0)
 	{
 		cout << question << endl;
 		cin >> value;
@@ -61,8 +78,9 @@ Position::Orientation getOrientation()
 }
 bool isValid(Position::Orientation orientation, int x, int y, int length, int max_x, int max_y)
 {
+	length--;
 	if (orientation == Position::HORIZONTAL)
-		return x + length <= max_x && y <= max_y;
+		return x + length < max_x && y < max_y;
 	else
-		return x <= max_x && y + length <= max_y;
+		return x < max_x && y + length < max_y;
 }

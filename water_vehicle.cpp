@@ -3,7 +3,7 @@
 #include "position.h"
 
 WaterVehicle::WaterVehicle(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length) :
-	_coordinates(coordinates), _orientation(orientation)
+	_coordinates(coordinates), _orientation(orientation), _length(length)
 {
 	if (length == 0)
 		throw "Ship length must be greater than 0";

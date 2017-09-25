@@ -13,6 +13,7 @@ public:
 	unsigned int GetDepth();
 	void SetDepth(unsigned int depth);
 	bool IsSurfaced();
+	Submarine operator=(Submarine other);
 private:
 	unsigned int _depth;
 };
