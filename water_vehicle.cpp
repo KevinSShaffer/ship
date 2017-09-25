@@ -3,7 +3,7 @@
 #include "position.h"
 
 WaterVehicle::WaterVehicle(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length) :
-	_coordinates(coordinates), _orientation(orientation),
+	_coordinates(coordinates), _orientation(orientation)
 {
 	if (length == 0)
 		throw "Ship length must be greater than 0";
@@ -40,8 +40,11 @@ bool WaterVehicle::IsHit(Position::Coordinates coordinates)
 	for (int i = 0; i < _length; i++)
 	{
 		if (shipCoordinates == coordinates)
+		{
+			_hits++;
 			return true;
-		else if (_orientation == Position::Orientation::HORIZONTAL)
+		}
+		else if (_orientation == Position::HORIZONTAL)
 			shipCoordinates.X++;
 		else
 			shipCoordinates.Y++;
