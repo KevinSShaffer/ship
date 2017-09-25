@@ -44,6 +44,13 @@ int main()
 			}
 		}
 
+	Submarine otherSub = submarine;
+
+	cout << otherSub.GetCoordinates().X << ", " << otherSub.GetCoordinates().Y << endl;
+	cout << (otherSub.GetOrientation() == Position::HORIZONTAL ? "Horizontal" : "Verical") << endl;
+	cout << otherSub.GetLength() << endl;
+	cout << otherSub.GetDepth() << endl;
+
 	cout << "Press a key to exit: ";
 	cin >> x;
 	return 0;
