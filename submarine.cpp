@@ -17,7 +17,7 @@ bool Submarine::IsSurfaced() const
 {
 	return _depth == 0;
 }
-Submarine::Submarine& Submarine::operator=(const Submarine& other)
+Submarine& Submarine::operator=(const Submarine& other)
 {
 	if (&other == this)
 		return *this;
