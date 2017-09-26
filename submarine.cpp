@@ -5,7 +5,7 @@
 // Submarine::Submarine(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length) :
 // 	WaterVehicle(coordinates, orientation, length) { }
 
-unsigned int Submarine::GetDepth()
+unsigned int Submarine::GetDepth() const
 {
 	return _depth;
 }
@@ -13,11 +13,13 @@ void Submarine::SetDepth(unsigned int depth)
 {
 	_depth = depth;
 }
-bool Submarine::IsSurfaced()
+bool Submarine::IsSurfaced() const
 {
 	return _depth == 0;
 }
-Submarine Submarine::operator=(Submarine other)
+Submarine::Submarine& Submarine::operator=(const Submarine& other)
 {
-	return Submarine(GetCoordinates(), GetOrientation(), GetLength(), _depth);
+	if (&other == this)
+		return *this;
+	//return Submarine(GetCoordinates(), GetOrientation(), GetLength(), _depth);
 }

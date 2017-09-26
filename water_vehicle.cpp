@@ -9,7 +9,7 @@ WaterVehicle::WaterVehicle(Position::Coordinates coordinates, Position::Orientat
 		throw "Ship length must be greater than 0";
 }
 
-Position::Coordinates WaterVehicle::GetCoordinates()
+Position::Coordinates WaterVehicle::GetCoordinates() const
 {
 	return _coordinates;
 }
@@ -17,7 +17,7 @@ void WaterVehicle::SetCoordinates(Position::Coordinates coordinates)
 {
 	_coordinates = coordinates;
 }
-Position::Orientation WaterVehicle::GetOrientation()
+Position::Orientation WaterVehicle::GetOrientation() const
 {
 	return _orientation;
 }
@@ -25,15 +25,15 @@ void WaterVehicle::SetOrientation(Position::Orientation orientation)
 {
 	_orientation = orientation;
 }
-unsigned int WaterVehicle::GetLength()
+unsigned int WaterVehicle::GetLength() const
 {
 	return _length;
 }
-bool WaterVehicle::IsSunk()
+bool WaterVehicle::IsSunk() const
 {
 	return _hits == _length; // assumes _length != 0
 }
-bool WaterVehicle::IsHit(Position::Coordinates coordinates)
+bool WaterVehicle::IsHit(const Position::Coordinates& coordinates)
 {
 	Position::Coordinates shipCoordinates = _coordinates;
 

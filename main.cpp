@@ -27,7 +27,7 @@ int main()
 
 	Submarine submarine(Position::Coordinates(x, y), orientation, length, depth);
 
-	grid.Randomize(75);
+	grid.Randomize(15);
 
 	cout << "Fifteen torpedo shots: " << endl;
 	cout << grid.ToString() << endl;

@@ -7,13 +7,13 @@ class WaterVehicle
 {
 public:
 	WaterVehicle(Position::Coordinates coordinates, Position::Orientation orientation, unsigned int length);
-	Position::Coordinates GetCoordinates();
+	Position::Coordinates GetCoordinates() const;
 	void SetCoordinates(Position::Coordinates coordinates);
-	Position::Orientation GetOrientation();
+	Position::Orientation GetOrientation() const;
 	void SetOrientation(Position::Orientation orientation);
-	unsigned int GetLength();
-	bool IsSunk();
-	bool IsHit(Position::Coordinates coordinates);
+	unsigned int GetLength() const;
+	bool IsSunk() const;
+	bool IsHit(const Position::Coordinates& coordinates);
 private:
 	Position::Coordinates _coordinates;
 	Position::Orientation _orientation;
