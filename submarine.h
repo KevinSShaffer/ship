@@ -1,3 +1,13 @@
+/********************************************************************
+*  Name        :  Kevin Shaffer
+*  Student ID  :  106069743
+*  Class       :  CSCI 2312-001        
+*  HW#         :  3
+*  Due Date    :  Sep 26th, 2017
+*  Description :  Contains the definitions for the Submarine class
+  				  derived from the WaterVehicle.
+********************************************************************/
+
 #ifndef SUBMARINE_H
 #define SUBMARINE_H
 
